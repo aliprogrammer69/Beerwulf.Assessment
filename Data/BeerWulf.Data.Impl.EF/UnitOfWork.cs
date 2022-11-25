@@ -4,7 +4,7 @@ namespace BeerWulf.Data.Impl.EF {
     public class UnitOfWork : IUnitOfWork {
         private readonly DbContext _dbContext;
 
-        public UnitOfWork(DbContext dbContext) {
+        public UnitOfWork(BeerWulfProductReviewDbContext dbContext) {
             _dbContext = dbContext;
         }
 

@@ -25,6 +25,7 @@ namespace BeerWulf.Application.Services {
             if (!validatoreResult.Success)
                 return validatoreResult;
             await _reviewRepository.AddAsync(review);
+            await _unitOfWork.SaveChangesAsync();
             return new Result(ResultCode.Ok);
         }
 

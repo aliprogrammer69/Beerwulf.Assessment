@@ -10,7 +10,7 @@ namespace BeerWulf.Data.Impl.EF {
         }
 
         public DbSet<Product> Products { get; set; }
-        //public DbSet<ProductReview> ProductReviews { get; set; }
+        public DbSet<ProductReview> ProductReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.HasDefaultSchema("Product");

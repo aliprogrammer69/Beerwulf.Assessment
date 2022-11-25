@@ -17,7 +17,8 @@ namespace BeerWulf.Data.Impl.EF.Repositories {
         }
 
         public Task<bool> ExistsAsync(uint productId) =>
-            _dbContext.Products.AnyAsync(p => p.Id == productId);
+            _dbContext.Products.AsNoTracking()
+                               .AnyAsync(p => p.Id == productId);
 
 
         public async Task<IEnumerable<Product>> GetAllAsync(ProductQuery query = null) =>

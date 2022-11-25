@@ -3,7 +3,18 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\BeerWulf.Application\BeerWulf.Application.csproj" />
+    <ProjectReference Include="..\Data\BeerWulf.Data.Impl.EF\BeerWulf.Data.Impl.EF.csproj" />
+    <ProjectReference Include="..\Data\BeerWulf.Data\BeerWulf.Data.csproj" />
+    <ProjectReference Include="..\Domain\BeerWulf.Domain\BeerWulf.Domain.csproj" />
+  </ItemGroup>
 
 </Project>
