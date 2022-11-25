@@ -19,8 +19,13 @@ namespace BeerWulf.UI.Api.Controllers {
             _reviewService = reviewService;
         }
 
+        /// <summary>
+        /// Search product info
+        /// </summary>
+        /// <param name="query">used for filtering products. let this null if want to see all products</param>
+        /// <returns></returns>
         [HttpGet]
-        public Task<ArrayResult<Product>> Get([FromQuery] ProductQuery query) =>
+        public Task<ArrayResult<Product>> Search([FromQuery] ProductQuery query) =>
             _productService.GetAllAsync(query);
 
         [HttpPost]

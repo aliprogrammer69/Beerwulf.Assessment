@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeerWulf.Test.UnitTest {
-    public class ReviewTests {
-
+namespace BeerWulf.Test.UnitTest.RepositoryTests {
+    public class ProductRepositoryTests {
     }
 }

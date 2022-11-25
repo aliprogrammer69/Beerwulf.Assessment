@@ -3,12 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -22,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\BeerWulf.Application\BeerWulf.Application.csproj" />
+    <ProjectReference Include="..\..\BeerWulf.Common\BeerWulf.Common.csproj" />
+    <ProjectReference Include="..\..\Data\BeerWulf.Data.Impl.EF\BeerWulf.Data.Impl.EF.csproj" />
+    <ProjectReference Include="..\..\Data\BeerWulf.Data\BeerWulf.Data.csproj" />
     <ProjectReference Include="..\..\Domain\BeerWulf.Domain\BeerWulf.Domain.csproj" />
   </ItemGroup>
 

@@ -11,11 +11,11 @@ builder.Services.AddControllers();
 //builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen()
                 .AddBeerWolfApi()
-                .AddBeerWulfDbContext(opt => opt.UseSqlServer("data source=.;initial catalog=BeerWulfDb;integrated security = true;Encrypt=false;"));
-                //.AddBeerWulfDbContext(opt => opt.UseInMemoryDatabase("BeerWulfDb"));
+                //.AddBeerWulfDbContext(opt => opt.UseSqlServer(builder.Configuration.GetSection("connectionString").Get<string>());
+                .AddBeerWulfDbContext(opt => opt.UseInMemoryDatabase("BeerWulfDb"));
 
 var app = builder.Build();
-//app.Services.InitializeBeerWulfMockProducts();
+app.Services.InitializeBeerWulfMockProducts(); // inorder to persist data in sql server, comment this line
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
