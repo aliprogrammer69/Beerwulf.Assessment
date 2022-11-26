@@ -28,6 +28,7 @@ namespace BeerWulf.Test.UnitTest.RepositoryTests {
 
 
             await _reviewRepository.AddAsync(review);
+            
             await _dbContext.SaveChangesAsync();
 
             IEnumerable<ProductReview> reviews = await _reviewRepository.GetAllAsync(1);

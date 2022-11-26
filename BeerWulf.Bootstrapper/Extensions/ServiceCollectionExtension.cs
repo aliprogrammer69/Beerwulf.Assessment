@@ -11,7 +11,8 @@ namespace BeerWulf.Bootstrapper.Extensions {
                 manager = new DefaultServiceCollectionManager();
 
             manager.RegisterServices(services)
-                   .RegisterRepositories(services);
+                   .RegisterRepositories(services)
+                   .RegisterUtils(services);
 
             return services;
         }

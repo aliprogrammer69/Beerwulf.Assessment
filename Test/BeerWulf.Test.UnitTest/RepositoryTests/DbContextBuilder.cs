@@ -7,16 +7,14 @@ namespace BeerWulf.Test.UnitTest.RepositoryTests {
     public static class DbContextBuilder {
         public static BeerWulfProductReviewDbContext GenerateDbContext() {
             DbContextOptionsBuilder<BeerWulfProductReviewDbContext> builder = new DbContextOptionsBuilder<BeerWulfProductReviewDbContext>();
-            builder.UseInMemoryDatabase("BeerWulfDb");
+            builder.UseInMemoryDatabase($"BeerWulfDb_{Guid.NewGuid()}");
 
-            BeerWulfProductReviewDbContext dbContext = new BeerWulfProductReviewDbContext(builder.Options);
-            if (!dbContext.Products.Any()) {
-                SeedHelper seedHelper = new SeedHelper(dbContext);
+            using(BeerWulfProductReviewDbContext seedContext = new BeerWulfProductReviewDbContext(builder.Options)) {
+                SeedHelper seedHelper = new SeedHelper(seedContext);
                 seedHelper.SeedProduct();
-                dbContext = new BeerWulfProductReviewDbContext(builder.Options); // Generate new scope
             }
 
-            return dbContext;
+            return new BeerWulfProductReviewDbContext(builder.Options); 
         }
     }
 }

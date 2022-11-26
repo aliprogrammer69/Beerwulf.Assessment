@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BeerWulf.Bootstrapper\BeerWulf.Bootstrapper.csproj" />
+    <ProjectReference Include="..\..\BeerWulf.Common\BeerWulf.Common.csproj" />
     <ProjectReference Include="..\..\Domain\BeerWulf.Domain\BeerWulf.Domain.csproj" />
   </ItemGroup>
 

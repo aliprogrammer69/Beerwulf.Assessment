@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BeerWulf.Bootstrapper {
     public class DefaultServiceCollectionManager : IServiceCollectionManager {
-        public IServiceCollectionManager RegisterRepositories(IServiceCollection service) {
+        public virtual IServiceCollectionManager RegisterRepositories(IServiceCollection service) {
             service.AddScoped<IProductRepository, ProductRepository>()
                    .AddScoped<IReviewRepository, ReviewRepository>()
                    .AddScoped<IUnitOfWork, UnitOfWork>()
@@ -20,11 +20,13 @@ namespace BeerWulf.Bootstrapper {
             return this;
         }
 
-        public IServiceCollectionManager RegisterServices(IServiceCollection service) {
+        public virtual IServiceCollectionManager RegisterServices(IServiceCollection service) {
             service.AddScoped<IProductService, ProductService>()
                    .AddScoped<IReviewService, ReviewService>()
                    .AddScoped<IProductReviewValidatore, ProductReviewValidatore>();
             return this;
         }
+
+        public virtual IServiceCollectionManager RegisterUtils(IServiceCollection service) => this;
     }
 }

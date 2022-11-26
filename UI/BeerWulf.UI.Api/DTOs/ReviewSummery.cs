@@ -1,4 +1,4 @@
-﻿namespace BeerWulf.UI.Api.Models {
+﻿namespace BeerWulf.UI.Api.DTOs {
     public class ReviewSummery {
         public ReviewSummery(double avarageScore, double recommandationPercentage) {
             AvarageScore = avarageScore;
