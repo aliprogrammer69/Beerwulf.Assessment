@@ -1,6 +1,7 @@
 ﻿using BeerWulf.Application.Services;
 using BeerWulf.Application.Services.Validations;
 using BeerWulf.Application.Services.Validations.Impls;
+using BeerWulf.Common.Utils;
 using BeerWulf.Data;
 using BeerWulf.Data.Impl.EF;
 using BeerWulf.Data.Impl.EF.Repositories;
@@ -27,6 +28,9 @@ namespace BeerWulf.Bootstrapper {
             return this;
         }
 
-        public virtual IServiceCollectionManager RegisterUtils(IServiceCollection service) => this;
+        public virtual IServiceCollectionManager RegisterUtils(IServiceCollection service) {
+            service.AddSingleton<ISerializer, JsonNetSerializer>();
+            return this;
+        }
     }
 }

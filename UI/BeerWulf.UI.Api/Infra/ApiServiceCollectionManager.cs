@@ -7,16 +7,20 @@ using BeerWulf.UI.Api.DTOs;
 using BeerWulf.UI.Api.Presentores;
 using BeerWulf.UI.Api.Presentores.Impls;
 
-namespace BeerWulf.UI.Api {
-    public class ApiServiceCollectionManager : DefaultServiceCollectionManager {
+namespace BeerWulf.UI.Api.Infra
+{
+    public class ApiServiceCollectionManager : DefaultServiceCollectionManager
+    {
 
-        public override IServiceCollectionManager RegisterServices(IServiceCollection service) {
+        public override IServiceCollectionManager RegisterServices(IServiceCollection service)
+        {
             service.AddScoped<IProductPresentore, ProductPresentore>()
                    .AddScoped<IProductReviewPresentore, ProductReviewPresentore>();
             return base.RegisterServices(service);
         }
 
-        public override IServiceCollectionManager RegisterUtils(IServiceCollection service) {
+        public override IServiceCollectionManager RegisterUtils(IServiceCollection service)
+        {
             MapperConfiguration mapperConfiguration = new MapperConfiguration(ConfigureMapper);
             IMapper mapper = mapperConfiguration.CreateMapper();
 
@@ -27,7 +31,8 @@ namespace BeerWulf.UI.Api {
         }
 
         #region Private Methods
-        private void ConfigureMapper(IMapperConfigurationExpression config) {
+        private void ConfigureMapper(IMapperConfigurationExpression config)
+        {
             config.CreateMap<Product, ProductDto>();
             config.CreateMap<ProductReview, ReviewDto>();
         }
