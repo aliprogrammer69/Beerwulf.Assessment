@@ -20,7 +20,7 @@ namespace BeerWulf.Data.Impl.EF.Repositories {
             await _dbContext.ProductReviews.Where(p => p.Product.Id == productId)
                                            .ToListAsync();
 
-        public async Task<(double AvarageScore, double RecommandationPercentage)> GetSummeryAsync(uint productId) {
+        public async Task<(double AverageScore, double RecommandationPercentage)> GetSummeryAsync(uint productId) {
             var result = await _dbContext.Products.AsNoTracking()
                                                   .Include(p => p.Reviews)
                                                   .Where(p => p.Id == productId)
