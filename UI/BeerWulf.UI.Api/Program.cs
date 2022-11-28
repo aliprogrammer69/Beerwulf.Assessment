@@ -18,7 +18,7 @@ builder.Services.AddControllers();
 //builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen()
                 .AddBeerWolfApi(new ApiServiceCollectionManager())
-                //.AddBeerWulfDbContext(opt => opt.UseSqlServer(builder.Configuration.GetSection("connectionString").Get<string>());
+                //.AddBeerWulfDbContext(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("localSql")))
                 .AddBeerWulfDbContext(opt => opt.UseInMemoryDatabase("BeerWulfDb"))
                 .AddTransient<IConfigureOptions<MvcOptions>, JsonOutputFormatterSetup>();
 
