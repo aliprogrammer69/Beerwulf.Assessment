@@ -5,6 +5,6 @@ namespace BeerWulf.Domain.Services {
     public interface IReviewService {
         Task<Result> AddAsync(ProductReview review);
         Task<ArrayResult<ProductReview>> GetAllAsync(uint productId);
-        Task<Result<(double AvarageScore, double RecommandationPercentage)>> GetSummeryAsync(uint productId);
+        Task<Result<(double AverageScore, double RecommendationPercentage)>> GetSummeryAsync(uint productId);
     }
 }

@@ -34,8 +34,8 @@ namespace BeerWulf.UI.Api.Controllers {
 
         [HttpPost]
         [Route("review")]
-        public Task<Result> AddReview(ProductReview review) =>
-            _reviewService.AddAsync(review);
+        public Task<Result> AddReview(ReviewDto review) =>
+            _productReviewPresentore.AddAsync(review);
 
         [HttpGet]
         [Route("{productId}/reviews")]

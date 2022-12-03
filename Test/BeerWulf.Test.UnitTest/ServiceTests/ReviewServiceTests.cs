@@ -28,7 +28,7 @@ namespace BeerWulf.Test.UnitTest.ServiceTests {
         }
 
         [Fact]
-        public async void Sould_Add_Review() {
+        public async void Should_Add_Review() {
             ProductReview review = new ProductReview() {
                 Product = new Product() {
                     Id = 1

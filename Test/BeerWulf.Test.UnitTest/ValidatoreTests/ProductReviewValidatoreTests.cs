@@ -28,43 +28,9 @@ namespace BeerWulf.Test.UnitTest.ValidatoreTests {
             Assert.Equal(ResultCode.BadRequest, result.Code);
         }
 
-        [Fact]
-        public async void Score_Should_Be_1() {
-            ProductReview review = new ProductReview() {
-                Product = new Product() {
-                    Id = 1
-                },
-                Title = "Test",
-                Comment = "Test",
-                Score = 0,
-                ProductRecommended = false,
-            };
-
-            Result result = await _productReviewValidatore.AddAsync(review);
-            Assert.True(result.Success);
-            Assert.Equal(1, review.Score);
-        }
-
-        [Fact]
-        public async void Score_Should_Be_5() {
-            ProductReview review = new ProductReview() {
-                Product = new Product() {
-                    Id = 1
-                },
-                Title = "Test",
-                Comment = "Test",
-                Score = 100,
-                ProductRecommended = true,
-            };
-
-            Result result = await _productReviewValidatore.AddAsync(review);
-            Assert.True(result.Success);
-            Assert.Equal(5, review.Score);
-        }
-
         public static IEnumerable<object[]> ProductReviews() {
             Product product = new Product() { Id = 1 };
-            return new List<object[]>(6) {
+            return new List<object[]>(8) {
                 new object[1]{new ProductReview() {
                     Product = product,
                     Title= "Test",
@@ -109,7 +75,23 @@ namespace BeerWulf.Test.UnitTest.ValidatoreTests {
                     Score = 5,
                     ProductRecommended = true
                 }
+                },
+                new object[1]{new ProductReview() {
+                    Product = new Product(){Id = 1},
+                    Title= "Test",
+                    Comment = "Test",
+                    Score = 0,
+                    ProductRecommended = true
                 }
+                },
+                new object[1]{new ProductReview() {
+                    Product = new Product(){Id = 1},
+                    Title= "Test",
+                    Comment = "Test",
+                    Score = 50,
+                    ProductRecommended = true
+                }
+            } 
             };
         }
 

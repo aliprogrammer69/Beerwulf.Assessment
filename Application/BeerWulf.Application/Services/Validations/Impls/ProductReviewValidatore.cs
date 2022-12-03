@@ -22,8 +22,8 @@ namespace BeerWulf.Application.Services.Validations.Impls {
             if (!productExists)
                 return new Result(ResultCode.BadRequest, "Product not exists");
 
-            review.Score = review.Score < 1 ? (byte)1 : review.Score;
-            review.Score = review.Score > 5 ? (byte)5 : review.Score;
+            if (review.Score < 1 || review.Score > 5)
+                return new Result(ResultCode.BadRequest, "Score should be between 1 and 5");
 
             return new Result(ResultCode.Ok);
         }

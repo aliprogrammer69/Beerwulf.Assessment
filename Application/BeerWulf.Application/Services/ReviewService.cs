@@ -36,9 +36,9 @@ namespace BeerWulf.Application.Services {
             };
         }
 
-        public async Task<Result<(double AvarageScore, double RecommandationPercentage)>> GetSummeryAsync(uint productId) {
-            (double AvarageScore, double RecommandationPercentage) result = await _reviewRepository.GetSummeryAsync(productId);
-            return new Result<(double AvarageScore, double RecommandationPercentage)>(ResultCode.Ok) {
+        public async Task<Result<(double AverageScore, double RecommendationPercentage)>> GetSummeryAsync(uint productId) {
+            (double AverageScore, double RecommendationPercentage) result = await _reviewRepository.GetSummeryAsync(productId);
+            return new Result<(double AverageScore, double RecommendationPercentage)>(ResultCode.Ok) {
                 Data = result
             };
         }

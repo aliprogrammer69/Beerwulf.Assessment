@@ -15,6 +15,9 @@ namespace BeerWulf.UI.Api.Presentores.Impls {
             _mapper = mapper;
         }
 
+        public Task<Result> AddAsync(ReviewDto review) =>
+            _reviewService.AddAsync(_mapper.Map<ProductReview>(review));
+
         public async Task<ArrayResult<ReviewDto>> GetAllAsync(uint productId) {
             ArrayResult<ProductReview> result = await _reviewService.GetAllAsync(productId);
             if (!result.Success)

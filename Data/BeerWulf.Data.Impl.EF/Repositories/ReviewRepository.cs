@@ -17,10 +17,11 @@ namespace BeerWulf.Data.Impl.EF.Repositories {
         }
 
         public async Task<IEnumerable<ProductReview>> GetAllAsync(uint productId) =>
-            await _dbContext.ProductReviews.Where(p => p.Product.Id == productId)
+            await _dbContext.ProductReviews.Include(p => p.Product)
+                                           .Where(p => p.Product.Id == productId)
                                            .ToListAsync();
 
-        public async Task<(double AverageScore, double RecommandationPercentage)> GetSummeryAsync(uint productId) {
+        public async Task<(double AverageScore, double RecommendationPercentage)> GetSummeryAsync(uint productId) {
             var result = await _dbContext.Products.AsNoTracking()
                                                   .Include(p => p.Reviews)
                                                   .Where(p => p.Id == productId)
